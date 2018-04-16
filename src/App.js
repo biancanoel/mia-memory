@@ -7,17 +7,17 @@ import mias from "./mias.json";
 ///////////Function to shuffle order of Mias 
 function shuffleMias(arr) {
   console.log("shuffle funct");
-  let i = arr.length-1;
+  let i = arr.length - 1;
   //Loop thru minus 1 length of arr, as long as i >0 and each time decrease i by 1
-  for (; i>0; i--){
+  for (; i > 0; i--) {
     //generate a random #between 1 and length of arr
-    const j = Math.floor(Math.random()*(i+1));
+    const j = Math.floor(Math.random() * (i + 1));
     //switch i's position with j's position in order to shuffle order
     const temp = arr[i];
-    arr[i]=arr[j];
-    arr[j]=temp;
+    arr[i] = arr[j];
+    arr[j] = temp;
     console.log("later in shuff funct");
-  };    return arr;
+  }; return arr;
 }
 
 
@@ -31,6 +31,7 @@ class App extends Component {
   };
 
   clickMia = (id) => {
+    shuffleMias(this.state.mias);
     console.log(`Mia with this id was clicked: ${id}`);
 
     //If duplicate click:
@@ -41,25 +42,31 @@ class App extends Component {
       this.setState({
         clickedMias: []
       });
-      shuffleMias(this.state.mias);
-
-    //If good click:
+   
+      //If good click:
     } else {
       this.setState({ score: this.state.score + 1 });
       this.setState({
         clickedMias: [...this.state.clickedMias, id]
       });
+      if (this.state.score > 1) {
+        alert("You win!");
+        this.setState({ score: 0 });
+        this.setState({
+          clickedMias: []
+        });
+      }
     };
   };
 
   render() {
-    
+
     return (
-    
+
       <div className="App">
         <div className="row">
-          <h1> Click on a Mia, but don't click the same one twice! </h1>
-          <h2> Score: {this.state.score} </h2>
+          <h1> Don't click the same Mia twice! </h1>
+          <h3> Score: {this.state.score} </h3>
 
           <Wrapper>
             {this.state.mias.map(mia => (
