@@ -4,6 +4,7 @@ import Wrapper from "./components/Wrapper";
 import './App.css';
 import mias from "./mias.json";
 
+///////////Function to shuffle order of Mias 
 function shuffleMias(arr) {
   console.log("shuffle funct");
   let i = arr.length-1;
@@ -20,7 +21,7 @@ function shuffleMias(arr) {
 }
 
 
-
+//Create App component
 class App extends Component {
 
   state = {
@@ -29,7 +30,7 @@ class App extends Component {
     clickedMias: []
   };
 
-  removeMia = (id) => {
+  clickMia = (id) => {
     console.log(`Mia with this id was clicked: ${id}`);
 
     //If duplicate click:
@@ -40,7 +41,7 @@ class App extends Component {
       this.setState({
         clickedMias: []
       });
-      shuffleMias(this.state.mias)
+      shuffleMias(this.state.mias);
 
     //If good click:
     } else {
@@ -66,7 +67,7 @@ class App extends Component {
                 id={mia.id}
                 key={mia.id}
                 image={mia.image}
-                removeMia={this.removeMia} />
+                clickMia={this.clickMia} />
             ))
             }
           </Wrapper>
