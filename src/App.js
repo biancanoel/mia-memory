@@ -4,7 +4,25 @@ import Wrapper from "./components/Wrapper";
 import './App.css';
 import mias from "./mias.json";
 
+function shuffleMias(arr) {
+  console.log("shuffle funct");
+  let i = arr.length-1;
+  //Loop thru minus 1 length of arr, as long as i >0 and each time decrease i by 1
+  for (; i>0; i--){
+    //generate a random #between 1 and length of arr
+    const j = Math.floor(Math.random()*(i+1));
+    //switch i's position with j's position in order to shuffle order
+    const temp = arr[i];
+    arr[i]=arr[j];
+    arr[j]=temp;
+    console.log("later in shuff funct");
+  };    return arr;
+}
+
+
+
 class App extends Component {
+
   state = {
     mias: mias,
     score: 0,
@@ -22,7 +40,7 @@ class App extends Component {
       this.setState({
         clickedMias: []
       });
-      this.shuffleMias()
+      shuffleMias(this.state.mias)
 
     //If good click:
     } else {
@@ -33,17 +51,10 @@ class App extends Component {
     };
   };
 
-  shuffleMias= () => {
-    var miarray = this.state.mias; 
-    console.log(miarray);
-  }
-
-
-
   render() {
-
+    
     return (
-
+    
       <div className="App">
         <div className="row">
           <h1> Click on a Mia, but don't click the same one twice! </h1>
