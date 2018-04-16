@@ -3,6 +3,8 @@ import MiaCard from "./components/MiaCard";
 import Wrapper from "./components/Wrapper";
 import './App.css';
 import mias from "./mias.json";
+import $ from 'jquery'; 
+
 
 ///////////Function to shuffle order of Mias 
 function shuffleMias(arr) {
@@ -42,6 +44,9 @@ class App extends Component {
       this.setState({
         clickedMias: []
       });
+      //shake wrapper div
+      $(".wrapper").addClass("wrapper-shake");
+
    
       //If good click:
     } else {
@@ -49,7 +54,7 @@ class App extends Component {
       this.setState({
         clickedMias: [...this.state.clickedMias, id]
       });
-      if (this.state.score > 1) {
+      if (this.state.score > 11) {
         alert("You win!");
         this.setState({ score: 0 });
         this.setState({

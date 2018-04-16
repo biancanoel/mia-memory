@@ -20,7 +20,7 @@ You can find the most recent version of this guide [here](https://github.com/fac
 - [Debugging in the Editor](#debugging-in-the-editor)
 - [Formatting Code Automatically](#formatting-code-automatically)
 - [Changing the Page `<title>`](#changing-the-page-title)
-- [Installing a Dependency](#installing-a-dependency)
+- [Installing a Dependency](#installing-a-dependency)f
 - [Importing a Component](#importing-a-component)
 - [Code Splitting](#code-splitting)
 - [Adding a Stylesheet](#adding-a-stylesheet)
