@@ -22,11 +22,8 @@ class App extends Component {
       this.setState({
         clickedMias: []
       });
+      this.shuffleMias()
 
-         //shuffle order of mia array
-
-        //set mia array to shuffled array
-      
     //If good click:
     } else {
       this.setState({ score: this.state.score + 1 });
@@ -35,6 +32,11 @@ class App extends Component {
       });
     };
   };
+
+  shuffleMias= () => {
+    var miarray = this.state.mias; 
+    console.log(miarray);
+  }
 
 
 
